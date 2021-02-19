@@ -1,2 +1,2 @@
 all:
-	gcc -o geometry -Wall -Werror geometry.c
+	gcc -Wall -Werror -o geometry.exe geometry.c
