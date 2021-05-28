@@ -30,7 +30,9 @@ int main()
             object[result_char] = '\0';
         }
 
-        check_object(object, m_string);
+        if (check_object(object, m_string) == 1) {
+            exit(0);
+        }
         circle[i].r = calculate(object, m_string);
         circle[i].x = coordinates_x(object, m_string);
         circle[i].y = coordinates_y(object, m_string);

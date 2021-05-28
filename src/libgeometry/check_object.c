@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void check_object(char* object, int m_string)
+int check_object(char* object, int m_string)
 {
     char check_string[] = {'c', 'i', 'r', 'c', 'l', 'e', '('};
     int is_true = 1;
@@ -17,7 +17,7 @@ void check_object(char* object, int m_string)
     }
     if (is_true != 1) {
         printf("\nError: expected 'circle': ");
-        exit(0);
+        return 1;
     }
 
     for (i = 0; i < m_string; i++) {
@@ -28,7 +28,7 @@ void check_object(char* object, int m_string)
                 }
                 printf("^");
                 printf("\nError: unexpected token");
-                exit(0);
+                return 1;
             }
         }
     }
@@ -43,7 +43,7 @@ void check_object(char* object, int m_string)
                         printf(" ");
                     }
                     printf("\nError: expected x '<double>'");
-                    exit(0);
+                    return 1;
                 }
             }
         }
@@ -63,7 +63,7 @@ void check_object(char* object, int m_string)
                             }
                             printf("\nError: expected y '<double>'");
 
-                            exit(0);
+                            return 1;
                         }
                     }
                 }
@@ -81,9 +81,10 @@ void check_object(char* object, int m_string)
                         printf(" ");
                     }
                     printf("\nError: expected r '<double>'");
-                    exit(0);
+                    return 1;
                 }
             }
         }
     }
+    return 0;
 }
